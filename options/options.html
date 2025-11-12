@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Despair Blocker - Settings</title>
+    <link rel="stylesheet" href="options.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- header section -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="skull-icon">💀</span>
+                    <h1>Despair Blocker</h1>
+                </div>
+                <p class="subtitle">Configure your path to productivity</p>
+            </div>
+        </header>
+
+        <!-- main content -->
+        <main class="main-content">
+            <!-- blocked sites section -->
+            <section class="settings-section">
+                <div class="section-header">
+                    <h2>Blocked Sites ⛔️</h2>
+                    <p>Add websites that want to block</p>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="newSiteInput" placeholder="Enter a website (eg. youtube.com)">
+
+                    <button class="btn btn-primary" id="addSiteBtn">
+                        Add Sites
+                    </button>
+                </div>
+                <div class="sites-list" id="sitesList"></div>
+            </section>
+
+            <!-- shedule Section -->
+            <section class="settings-section">
+                <div class="section-header">
+                    <h2>Blocking Shedule 🕰️</h2>
+                    <p>When should youre future self protect you
+                        from yourself</p>
+                </div>
+                <div class="shedule-cotrols">
+                    <lable class="toggle-switch">
+                        <input type="checkbox" id="scheduleEnabled">
+                        <span class="toggle-slider"></span>
+                        <span class="toggle-label">Enable Shedule</span>
+                    </lable>
+                </div>
+                <div class="schedule-setting" id="scheduleSettings">
+                    <div class="time-inputs">
+                        <div class="time-group">
+                            <label for="startTime"></label>
+                            <input type="time" class="time-input" id="startTime">
+                        </div>
+                        <div class="time-group">
+                            <label for="endTime"></label>
+                            <input type="time" class="time-input" id="endTime">
+                        </div>
+                    </div>
+
+                    <div class="days-selection">
+                        <label for="Work days"></label>
+                        <div class="days-grid">
+                            <label class="day-checkbox">
+                                <input type="checkbox" value="1" class="workday-checkbox">
+                                <span>Mon</span>
+                            </label>
+                            <label class="day-checkbox">
+                                <input type="checkbox" value="2" class="workday-checkbox">
+                                <span>Tue</span>
+                            </label>
+                            <label class="day-checkbox">
+                                <input type="checkbox" value="3" class="workday-checkbox">
+                                <span>Wed</span>
+                            </label>
+                            <label class="day-checkbox">
+                                <input type="checkbox" value="4" class="workday-checkbox">
+                                <span>Thu</span>
+                            </label>
+                            <label class="day-checkbox">
+                                <input type="checkbox" value="5" class="workday-checkbox">
+                                <span>Fri</span>
+                            </label>
+                            <label class="day-checkbox">
+                                <input type="checkbox" value="6" class="workday-checkbox">
+                                <span>Sat</span>
+                            </label>
+                            <label class="day-checkbox">
+                                <input type="checkbox" value="0" class="workday-checkbox">
+                                <span>Sun</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Message section -->
+            <section class="settings-section">
+                <div class="section-header">
+                    <h2>Message from future you ✉️</h2>
+                    <p>Craft the perfect fuilt trip for your
+                        procrastinating self</p>
+                </div>
+                <div class="message-input-group">
+                    <textarea id="newMessageInput" class="message-textarea"
+                        placeholder="Write a message from your future self">
+                </textarea>
+                    <button class="btn btn-primary" id="addMessageBtn">
+                        Add Message</button>
+                </div>
+                <div class="messages-list" id="messagesList">
+
+                </div>
+            </section>
+
+            <!-- additional settings -->
+            <section class="settings-section">
+                <div class="section-header">
+                    <h2>Additional Settings ⚙️</h2>
+                    <p>Fine-tune despair experience</p>
+                </div>
+                <div class="additional-settings">
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="enableTTS">
+                        <span class="toggle-slider"></span>
+                        <span class="toggle-label">Enable Text to Speech</span>
+                    </label>
+                </div>
+            </section>
+
+            <!-- action buttons -->
+            <button class="btn btn-success" id="saveBtn">
+                💾 Save Settings
+            </button>
+            <button class="btn btn-danger" id="resetBtn">
+                🔃 Reset to Default
+            </button>
+            <button class="btn btn-secondary" id="saveBtn">
+                🧪 Test Block Message
+            </button>
+        </main>
+    </div>
+</body>
+
+</html>
