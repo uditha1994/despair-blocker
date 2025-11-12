@@ -1,0 +1,36 @@
+{
+    "manifest_version": 3,
+    "name": "Despair - The Motivational Blocker",
+    "version": "1.0.0",
+    "description": "Block procrastination sites with regretful messages form your future self",
+    "permissions": [
+        "storage",
+        "alarms",
+        "tabs",
+        "activeTab",
+        "scripting"
+    ],
+    "host_permission": [
+        "<all_urls>"
+    ],
+    "background": {
+        "service_worker": "configuration/background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<>all_urls"
+            ],
+            "js": [
+                "worker/content.js"
+            ],
+            "run_at": "document_start"
+        }
+    ],
+    "options_page": "options/options.html",
+    "icons": {},
+    "action": {
+        "default_popup": "popup/popup.html",
+        "default_title": "Configure Despair Blocker"
+    }
+}
