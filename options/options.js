@@ -422,6 +422,8 @@ function testBlockMessage() {
             </div>
         </div>
     `;
+
+    document.body.appendChild(textOverlay);
 }
 
 function showStatus(message, type = 'info') {
