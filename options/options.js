@@ -421,9 +421,20 @@ function testBlockMessage() {
                 ">Close Test</button>
             </div>
         </div>
+        
     `;
 
     document.body.appendChild(textOverlay);
+
+    //Test TTS if enable
+    if (currentConfig.enableTTS && 'speechSynthesis' in window) {
+        setTimeout(() => {
+            const utterence = new SpeechSynthesisUtterance(randomMessage);
+            utterence.rate = 0.8;
+            utterence.pitch = 0.7;
+            utterence.volume = 0.8;
+        }, 500);
+    }
 }
 
 function showStatus(message, type = 'info') {
@@ -441,3 +452,20 @@ function escapeHtml(text) {
     div.textContent = text;
     return div.innerHTML;
 }
+
+// handle storage changes from another instance
+chrome.storage.onChanged.addEventListener((changes, namespace) => {
+    if (namespace === 'sync' && changes.config) {
+        currentConfig = changes.config.newValue;
+        updateUI();
+        showStatus('settings updated from another instance', 'info');
+    }
+});
+
+window.addEventListener('beforeunload', (e) => {
+    //track if there are actual unsaved changes
+    const confirmationMesage = `You may have unsaved changes, 
+    Are you sure want to leave?`;
+    e.returnValue = confirmationMesage;
+    return confirmationMesage;
+})
