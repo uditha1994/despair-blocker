@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Despair Blocker</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+    <div class="popup-container">
+        <!-- Header -->
+        <div class="popup-header">
+            <div class="logo">
+                <span class="skull-icon">💀</span>
+                <h1>Despair Blocker</h1>
+            </div>
+        </div>
+
+        <!-- Status Section -->
+        <div class="status-section">
+            <div class="status-item">
+                <span class="status-label">Status:</span>
+                <span class="status-value" id="blockingStatus">
+                    Loading...
+                </span>
+            </div>
+            <div class="status-item">
+                <span class="status-label">Blocked Sites:</span>
+                <span class="status-value" id="blockingStatus">
+                    0
+                </span>
+            </div>
+            <div class="status-item">
+                <span class="status-label">Schedule:</span>
+                <span class="status-value" id="blockingStatus">
+                    Disabled
+                </span>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions">
+            <button class="action-btn primary" id="toggleBlocking">
+                <span id="toggle-text">Disable Blocking</span>
+            </button>
+            <button class="action-btn secondary" id="openOptions">
+                Full Settings
+            </button>
+            <button class="action-btn tertiary" id="textBlock">
+                Test Block
+            </button>
+        </div>
+
+        <!-- Quick Add Site -->
+        <div class="quick-add">
+            <h3>Quick Add Site</h3>
+            <div class="input-group">
+                <input type="text" id="quickSiteInput" placeholder="Enter website">
+                <button class="add-btn" id="quickAddBtn">+</button>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="popup-footer">
+            <p>Your future self is watching...</p>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+
+</html>
