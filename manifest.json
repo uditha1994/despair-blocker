@@ -10,7 +10,7 @@
         "activeTab",
         "scripting"
     ],
-    "host_permission": [
+    "host_permissions": [
         "<all_urls>"
     ],
     "background": {
@@ -19,7 +19,7 @@
     "content_scripts": [
         {
             "matches": [
-                "<>all_urls"
+                "<all_urls>"
             ],
             "js": [
                 "worker/content.js"

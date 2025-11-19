@@ -5,7 +5,7 @@ const elements = {
     scheduleStatus: document.getElementById('scheduleStatus'),
     toggleBlocking: document.getElementById('toggleBlocking'),
     toggleText: document.getElementById('toggleText'),
-    openOption: document.getElementById('openOption'),
+    openOptions: document.getElementById('openOptions'),
     testBlock: document.getElementById('testBlock'),
     quickSiteInput: document.getElementById('quickSiteInput'),
     quickAddBtn: document.getElementById('quickAddBtn')
@@ -71,7 +71,7 @@ function updateStateDisplay() {
     if (currentConfig.schedule?.enable) {
         const now = new Date();
         const currentDay = now.getDay();
-        const isWorkDay = currentConfig.schedule.workDays?.include(currentDay);
+        const isWorkDay = currentConfig.schedule.workDays?.includes(currentDay);
 
         if (isWorkDay) {
             elements.scheduleStatus.textContent = `${currentConfig.schedule.startTime} - ${currentConfig.schedule.endTime}`;
@@ -91,7 +91,7 @@ function setupEventListeners() {
     elements.toggleBlocking.addEventListener('click', toggleBlocking);
 
     //open full options
-    elements.openOption.addEventListener('click', openOption);
+    elements.openOptions.addEventListener('click', openOption);
 
     //Test block
     elements.testBlock.addEventListener('click', testBlock);
@@ -132,7 +132,7 @@ async function toggleBlocking() {
  * Open full options page
  */
 function openOption() {
-    chrome.tabs.create({ url: chrome.runtime.getURL('options.html') });
+    chrome.tabs.create({ url: chrome.runtime.getURL('options/options.html') });
     window.close();
 }
 
@@ -175,7 +175,7 @@ async function quickAddSite() {
         const cleanSite = cleanSiteUrl(siteInput);
 
         //check if site already exists
-        if (currentConfig.blockedSites.include(cleanSite)) {
+        if (currentConfig.blockedSites.includes(cleanSite)) {
             showFeedback('Site already blocked', true);
             return;
         }
@@ -205,7 +205,7 @@ function cleanSiteUrl(url) {
         .replace(/^https?:\/\//, '') //remove protocol
         .replace(/^www\./, '') //remove www\
         .replace(/\/$/, '') //remove trailing slash
-        .toLowercase();
+        .toLowerCase();
 }
 
 function showFeedback(message, isError = false) {
