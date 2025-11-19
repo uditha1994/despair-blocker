@@ -32,8 +32,7 @@ document.addEventListener('DOMContentLoaded', async () => {
  */
 async function loadStatus() {
     try {
-        const result = await chrome.storage.sync.get
-            (['config', 'temperaryDisabled']);
+        const result = await chrome.storage.sync.get(['config', 'temperaryDisabled']);
         currentConfig = result.config;
         isBlocking = !result.temperaryDisabled;
 
@@ -66,19 +65,16 @@ function updateStateDisplay() {
     }
 
     //blocking sites count
-    elements.blockingCount.textContent =
-        currentConfig.blockedSites?.length || 0;
+    elements.blockingCount.textContent = currentConfig.blockedSites?.length || 0;
 
     //schedule status
     if (currentConfig.schedule?.enable) {
         const now = new Date();
         const currentDay = now.getDay();
-        const isWorkDay = currentConfig.schedule.
-            workDays?.include(currentDay);
+        const isWorkDay = currentConfig.schedule.workDays?.include(currentDay);
 
         if (isWorkDay) {
-            elements.scheduleStatus.textContent =
-                `${currentConfig.schedule.startTime} - ${currentConfig.schedule.endTime}`;
+            elements.scheduleStatus.textContent = `${currentConfig.schedule.startTime} - ${currentConfig.schedule.endTime}`;
             elements.scheduleStatus.className = 'status-value active';
         } else {
             elements.scheduleStatus.textContent = 'Off Day';
